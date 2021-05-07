@@ -21,13 +21,18 @@ RSpec.describe 'Any Pattern Test' do
   it 'has at least one alice' do
     names = ["Bill", "Bob", "Burton", "Alice", "Brandon"]
     has_alice = false
-    # Your code goes here
+    names.each do |name|
+      has_alice = true if name == "Alice"
+    end
     expect(has_alice).to eq(true)
   end
 
-  xit 'no alices' do
+  it 'no alices' do
     names = ["Chuck", "Charlene", "Cory", "Chris", "Carl"]
-    # Your code goes here
+    has_alice = false
+    names.each do |name|
+      has_alice = true if name == "Alice"
+    end
     expect(has_alice).to eq(false)
   end
 
