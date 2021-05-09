@@ -49,20 +49,26 @@ RSpec.describe 'Count Pattern Test' do
     numbers = [2, 5, 19, 25, 35, 67]
     tally = 0
     numbers.each do |num|
-      tally += 1 if num % 5 == 0 
+      tally += 1 if num % 5 == 0
     end
     expect(tally).to eq(3)
   end
 
-  xit 'round prices' do
+  it 'round prices' do
     prices = [1.0, 3.9, 5.99, 18.5, 20.0]
-    # Your code goes here
+    tally = 0
+    prices.each do |price|
+      tally += 1 if price == price.round
+    end
     expect(tally).to eq(2)
   end
 
-  xit 'four letter words' do
+  it 'four letter words' do
     words = ["bake", "bark", "corn", "apple", "wart", "bird", "umbrella", "fart"]
-    # Your code goes here
+    tally = 0
+    words.each do |word|
+      tally += 1 if word.length == 4
+    end
     expect(tally).to eq(6)
   end
 
