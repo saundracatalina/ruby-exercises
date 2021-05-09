@@ -31,20 +31,26 @@ RSpec.describe 'Count Pattern Test' do
     words = ["thought", "brake", "shin", "juice", "trash"]
     tally = 0
     words.each do |word|
-      
+      tally += 1 if word[-3..-1] == 'ing'
     end
     expect(tally).to eq(0)
   end
 
-  xit 'even numbers' do
+  it 'even numbers' do
     numbers = [9, 2, 1, 3, 18, 39, 71, 4, 6]
-    # Your code goes here
+    tally = 0
+    numbers.each do |num|
+      tally += 1 if num.even?
+    end
     expect(tally).to eq(4)
   end
 
-  xit 'multiples of 5' do
+  it 'multiples of 5' do
     numbers = [2, 5, 19, 25, 35, 67]
-    # Your code goes here
+    tally = 0
+    numbers.each do |num|
+      tally += 1 if num % 5 == 0 
+    end
     expect(tally).to eq(3)
   end
 
