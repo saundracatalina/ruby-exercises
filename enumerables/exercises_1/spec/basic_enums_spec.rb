@@ -10,7 +10,9 @@ RSpec.describe 'Basic Enums Test' do
   it 'simple sum' do
     sum = 0
     numbers = [1, 2, 3, 4, 5]
-    # write code here
+    numbers.each do |num|
+      sum += num
+    end
     expect(sum).to eq(15)
   end
 end
