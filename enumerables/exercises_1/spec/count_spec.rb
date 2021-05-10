@@ -8,10 +8,10 @@ RSpec.describe 'count test' do
     expect(tally).to eq(3)
   end
 
-  xit 'numbers greater than 17' do
+  it 'numbers greater than 17' do
     numbers = [9, 18, 12, 17, 1, 3, 99]
     tally = numbers.count do |number|
-      # Your code goes here
+      number > 17
     end
     expect(tally).to eq(2)
   end
@@ -52,4 +52,3 @@ RSpec.describe 'count test' do
     expect(tally).to eq(6)
   end
 end
-
