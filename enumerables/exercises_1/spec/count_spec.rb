@@ -48,15 +48,19 @@ RSpec.describe 'count test' do
     expect(tally).to eq(3)
   end
 
-  xit 'round prices' do
+  it 'round prices' do
     prices = [1.0, 3.9, 5.99, 18.5, 20.0]
-    # Your code goes here
+    tally = prices.count do |price|
+      price == price.round
+    end
     expect(tally).to eq(2)
   end
 
-  xit 'four letter words' do
+  it 'four letter words' do
     words = ["bake", "bark", "corn", "apple", "wart", "bird", "umbrella", "fart"]
-    # Your code goes here
+    tally = words.count do |word|
+      word.length == 4
+    end
     expect(tally).to eq(6)
   end
 end
