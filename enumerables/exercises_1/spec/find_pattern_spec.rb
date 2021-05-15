@@ -40,21 +40,32 @@ RSpec.describe 'find pattern' do
     found = nil
     words.each do |word|
       if word.length == 3
-        found = true
+        found = word
       end
     end
     expect(found).to eq(nil)
   end
 
-  xit 'finds 13' do
+  it 'finds 13' do
     numbers = [2, 13, 19, 8, 3, 27]
-    # Your code goes here
+    found = nil
+    numbers.each do |num|
+      if num == 13
+        found = num
+      end
+    end
     expect(found).to eq(13)
   end
 
-  xit 'first even number' do
+  it 'first even number' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
-    # Your code goes here
+    found = nil
+    numbers.each do |num|
+      if num.even?
+        found = num
+        break
+      end
+    end
     expect(found).to eq(10)
   end
 
