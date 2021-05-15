@@ -69,15 +69,27 @@ RSpec.describe 'find pattern' do
     expect(found).to eq(10)
   end
 
-  xit 'first multiple of 3' do
+  it 'first multiple of 3' do
     numbers = [2, 8, 9, 27, 24, 5]
-    # Your code goes here
+    found = nil
+    numbers.each do |num|
+      if num % 3 == 0
+        found = num
+        break
+      end
+    end
     expect(found).to eq(9)
   end
 
-  xit 'first word starting with q' do
+  it 'first word starting with q' do
     words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
-    # Your code goes here
+    found = nil
+    words.each do |word|
+      if word[0] == "q"
+        found = word
+        break
+      end
+    end
     expect(found).to eq("quill")
   end
 
