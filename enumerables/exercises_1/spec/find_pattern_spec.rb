@@ -24,16 +24,25 @@ RSpec.describe 'find pattern' do
     expect(found).to eq(nil)
   end
 
-  xit 'found waldo' do
+  it 'found waldo' do
     words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
     found = nil
-    # Your code goes here
+    words.each do |word|
+      if word == "waldo"
+        found = word
+      end
+    end
     expect(found).to eq("waldo")
   end
 
-  xit 'no three letter words' do
+  it 'no three letter words' do
     words = ["piglet", "porridge", "bear", "blueberry"]
-    # Your code goes here
+    found = nil
+    words.each do |word|
+      if word.length == 3
+        found = true
+      end
+    end
     expect(found).to eq(nil)
   end
 
