@@ -93,15 +93,27 @@ RSpec.describe 'find pattern' do
     expect(found).to eq("quill")
   end
 
-  xit 'first word ending with er' do
+  it 'first word ending with er' do
     words = ["biggest", "pour", "blight", "finger", "pie", "border"]
-    # Your code goes here
+    found = nil
+    words.each do |word|
+      if word[-2..-1] == "er"
+        found = word
+        break
+      end
+    end
     expect(found).to eq("finger")
   end
 
-  xit 'first number greater than 20' do
+  it 'first number greater than 20' do
     numbers = [1, 8, 19, 21, 29, 31, 34]
-    # Your code goes here
+    found = nil
+    numbers.each do |num|
+      if num > 20
+        found = num
+        break 
+      end
+    end
     expect(found).to eq(21)
   end
 end
