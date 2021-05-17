@@ -64,15 +64,19 @@ RSpec.describe 'find test' do
     expect(found).to eq("quill")
   end
 
-  xit 'first word ending with er' do
+  it 'first word ending with er' do
     words = ["biggest", "pour", "blight", "finger", "pie", "border"]
-    # Your code goes here
+    found = words.find do |word|
+      word[-2..-1] == 'er'
+    end
     expect(found).to eq("finger")
   end
 
-  xit 'first number greater than 20' do
+  it 'first number greater than 20' do
     numbers = [1, 8, 19, 21, 29, 31, 34]
-    # Your code goes here
+    found = numbers.find do |num|
+      num > 20
+    end
     expect(found).to eq(21)
   end
 end
