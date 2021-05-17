@@ -32,15 +32,19 @@ RSpec.describe 'find test' do
     expect(found).to eq(nil)
   end
 
-  xit 'find 13' do
+  it 'find 13' do
     numbers = [2, 13, 19, 8, 3, 27]
-    # Your code goes here
+    found = numbers.find do |num|
+      num == 13
+    end
     expect(found).to eq(13)
   end
 
-  xit 'find first even number' do
+  it 'find first even number' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
-    # Your code goes here
+    found = numbers.find do |num|
+      num.even?
+    end
     expect(found).to eq(10)
   end
 
