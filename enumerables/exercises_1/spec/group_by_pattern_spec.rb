@@ -21,22 +21,27 @@ RSpec.describe 'group by pattern' do
     expect(odd_and_even).to eq(expected)
   end
 
-  xit 'groups by first letter' do
+  it 'groups by first letter' do
     words = ["ant", "axis", "albatross", "bolt", "badge", "butter", "car", "cdr", "column"]
     words_by_first_letter = Hash.new {|hash, key| hash[key] = []}
-    # Your code goes here
+    words.each do |word|
+      words_by_first_letter[word[0]] << word
+    end
     expected = {"a"=>["ant", "axis", "albatross"], "b"=>["bolt", "badge", "butter"], "c"=>["car", "cdr", "column"]}
     expect(words_by_first_letter).to eq(expected)
   end
 
-  xit 'group by uniqueness' do
+  it 'group by uniqueness' do
     words = ["one", "two", "one", "TWO", "three", "one", "three", "three", "three"]
-    # Your code goes here
+    grouped = Hash.new {|hash, key| hash[key] = []}
+    words.each do |word|
+      grouped[word.downcase] << word
+    end
     expected = {"one"=>["one", "one", "one"], "two"=>["two", "TWO"], "three"=>["three", "three", "three", "three"]}
     expect(grouped).to eq(expected)
   end
 
-  xit 'group by number of zeroes' do
+  it 'group by number of zeroes' do
     numbers = [1, 3, 500, 200, 4000, 3000, 10000, 90, 20, 500000]
     # Your code goes here
     expected = {0=>[1, 3], 2=>[500, 200], 3=>[4000, 3000], 4=>[10000], 1=>[90, 20], 5=>[500000]}
