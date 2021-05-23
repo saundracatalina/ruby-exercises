@@ -8,18 +8,20 @@ RSpec.describe 'group by' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'group by odd and even' do
+  it 'group by odd and even' do
     numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
     odd_and_even = numbers.group_by do |number|
-      # Your code goes here
+      number.odd?
     end
-    expected = {1=>[1, 1, 3, 5, 13, 21, 55], 0=>[2, 8, 34]}
+    expected = {true=>[1, 1, 3, 5, 13, 21, 55], false=>[2, 8, 34]}
     expect(odd_and_even).to eq(expected)
   end
 
-  xit 'group by first letter' do
+  it 'group by first letter' do
     words = ["ant", "axis", "albatross", "bolt", "badge", "butter", "car", "cdr", "column"]
-    # Your code goes here
+    words_by_first_letter = words.group_by do |word|
+      word[0]
+    end
     expected = {"a"=>["ant", "axis", "albatross"], "b"=>["bolt", "badge", "butter"], "c"=>["car", "cdr", "column"]}
     expect(words_by_first_letter).to eq(expected)
   end
