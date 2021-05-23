@@ -26,23 +26,29 @@ RSpec.describe 'group by' do
     expect(words_by_first_letter).to eq(expected)
   end
 
-  xit 'group by uniqueness' do
+  it 'group by uniqueness' do
     words = ["one", "two", "one", "TWO", "three", "one", "three", "three", "three"]
-    # Your code goes here
+    grouped = words.group_by do |word|
+      word.downcase
+    end
     expected = {"one"=>["one", "one", "one"], "two"=>["two", "TWO"], "three"=>["three", "three", "three", "three"]}
     expect(grouped).to eq(expected)
   end
 
-  xit 'grouped by number of zeroes' do
+  it 'grouped by number of zeroes' do
     numbers = [1, 3, 500, 200, 4000, 3000, 10000, 90, 20, 500000]
-    # Your code goes here
+    grouped = numbers.group_by do |number|
+      number.to_s.count('0')
+    end
     expected = {0=>[1, 3], 2=>[500, 200], 3=>[4000, 3000], 4=>[10000], 1=>[90, 20], 5=>[500000]}
     expect(grouped).to eq(expected)
   end
 
-  xit 'grouped by order of magnitude' do
+  it 'grouped by order of magnitude' do
     numbers = [1, 3, 503, 239, 4938, 3932, 19982, 93, 21, 501787]
-    # Your code goes here
+    grouped = numbers.group_by do |number|
+      number.to_s.length
+    end
     expected = {1=>[1, 3], 2=>[93, 21], 3=>[503, 239], 4=>[4938, 3932], 5=>[19982], 6=>[501787]}
     expect(grouped).to eq(expected)
   end
