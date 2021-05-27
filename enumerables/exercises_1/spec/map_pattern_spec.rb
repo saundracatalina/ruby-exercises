@@ -18,16 +18,21 @@ RSpec.describe 'map pattern' do
     expect(doubles).to eq([2, 4, 6, 8, 10])
   end
 
-  xit 'squares' do
+  it 'squares' do
     numbers = [1, 2, 3, 4, 5]
     squares = []
-    # Your code goes here
+    numbers.each do |num|
+      squares << (num * num)
+    end
     expect(squares).to eq([1, 4, 9, 16, 25])
   end
 
-  xit 'lengths' do
+  it 'lengths' do
     names = ["alice", "bob", "charlie", "david", "eve"]
-    # Your code goes here
+    lengths = []
+    names.each do |name|
+      lengths << name.length 
+    end
     expect(lengths).to eq([5, 3, 7, 5, 3])
   end
 
