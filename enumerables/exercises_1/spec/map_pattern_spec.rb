@@ -49,20 +49,26 @@ RSpec.describe 'map pattern' do
     names = ["alice", "bob", "charlie", "david", "eve"]
     backwards = []
     names.each do |name|
-      backwards << name.reverse 
+      backwards << name.reverse
     end
     expect(backwards).to eq(["ecila", "bob", "eilrahc", "divad", "eve"])
   end
 
-  xit 'words with no vowels' do
+  it 'words with no vowels' do
     words = ["green", "sheep", "travel", "least", "boat"]
-    # Your code goes here
+    without_vowels = []
+    words.each do |word|
+      without_vowels << word.delete('aeiou')
+    end
     expect(without_vowels).to  eq(["grn", "shp", "trvl", "lst", "bt"])
   end
 
-  xit 'trims last letter' do
+  it 'trims last letter' do
     animals = ["dog", "cat", "mouse", "frog", "platypus"]
-    # Your code goes here
+    trimmed = []
+    animals.each do |animal|
+      trimmed << animal.delete(animal[-1])
+    end
     expect(trimmed).to eq(["do", "ca", "mous", "fro", "platypu"])
   end
 end
